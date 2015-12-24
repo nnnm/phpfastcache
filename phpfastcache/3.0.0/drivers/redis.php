@@ -80,6 +80,9 @@ class phpfastcache_redis extends BasePhpFastCache implements phpfastcache_driver
 			    $this->fallback = true;
 			    return false;
 		    } else {
+			    if($password!="") {
+			    	$this->instant->auth($password);
+			    }
 			    if($database!="") {
 				    $this->instant->select((Int)$database);
 			    }
